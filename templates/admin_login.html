@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5 card-admin">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow p-4 admin-form">
+                <h3 class="text-center mb-4">Admin Login</h3>
+                <form method="POST">
+                    <input type="email" name="email" class="form-control mb-3" placeholder="Admin Email" required>
+                    <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+                    <button type="submit" class="btn btn-submit w-100">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

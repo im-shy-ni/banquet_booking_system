@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="form-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="form-card">
+                    <h3 class="form-title">Book {{ hall.hall_name }}</h3>
+                    <form method="POST">
+                        <input type="text" name="event_type" class="form-control mb-3" placeholder="Event Type" required>
+                        <input type="date" name="event_date" class="form-control mb-3" min="{{ date_today }}" required>
+                        <input type="number" name="guests" class="form-control mb-3" placeholder="Number of Guests" required>
+                        <textarea name="message" class="form-control mb-3" rows="4" placeholder="Additional Details"></textarea>
+                        <button type="submit" class="btn-submit">Submit Booking</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

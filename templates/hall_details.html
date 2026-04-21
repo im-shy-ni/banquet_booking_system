@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="modern-card">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='images/' + (hall.image if hall.image else 'default.jpg')) }}" alt="Hall Image" style="height:100%; min-height:420px;">
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-body-modern p-4 p-lg-5">
+                        <h2 class="section-title mb-3">{{ hall.hall_name }}</h2>
+                        <p class="card-text-muted mb-2"><strong>Location:</strong> {{ hall.location }}</p>
+                        <p class="card-text-muted mb-2"><strong>Capacity:</strong> {{ hall.capacity }} Guests</p>
+                        <p class="card-text-muted mb-2"><strong>Status:</strong> {{ hall.status }}</p>
+                        <div class="price-tag mb-3">₹{{ hall.price }}</div>
+                        <p class="card-text-muted mb-4">{{ hall.description }}</p>
+                        <a href="{{ url_for('booking', hall_id=hall.id) }}" class="hero-btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

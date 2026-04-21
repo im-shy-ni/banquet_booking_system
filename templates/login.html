@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="form-section auth-bg">
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+            <div class="col-lg-5">
+                <div class="form-card auth-card">
+                    <h3 class="form-title text-center mb-4">User Login</h3>
+
+                    <form method="POST">
+
+                        <!-- Email -->
+                        <div class="form-group floating mb-4">
+                            <input type="email" name="email" class="form-control" required>
+                            <label>Email Address</label>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group floating mb-4 position-relative">
+                            <input type="password" id="password" name="password" class="form-control" required>
+                            <label>Password</label>
+
+                            <span onclick="togglePassword()" class="toggle-eye">
+                                👁
+                            </span>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Login</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function togglePassword() {
+    var password = document.getElementById("password");
+
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+}
+</script>
+
+{% endblock %}

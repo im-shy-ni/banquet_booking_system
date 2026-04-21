@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title mb-4">My Bookings</h2>
+
+        <div class="table-wrapper">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Hall</th>
+                            <th>Location</th>
+                            <th>Event Type</th>
+                            <th>Event Date</th>
+                            <th>Guests</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking.hall_name }}</td>
+                            <td>{{ booking.location }}</td>
+                            <td>{{ booking.event_type }}</td>
+                            <td>{{ booking.event_date }}</td>
+                            <td>{{ booking.guests }}</td>
+                            <td>{{ booking.booking_status }}</td>
+                            <td>
+                                {% if booking.booking_status == 'pending' %}
+                                    <a href="{{ url_for('cancel_booking', booking_id=booking.id) }}" class="btn btn-danger btn-sm">Cancel</a>
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

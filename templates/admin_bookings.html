@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="mb-4">
+            <h2 class="section-title mb-1">Manage Bookings</h2>
+            <p class="section-subtitle mb-0">Review and update booking requests from users.</p>
+        </div>
+
+        <div class="table-wrapper">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Hall</th>
+                            <th>Location</th>
+                            <th>Event Type</th>
+                            <th>Event Date</th>
+                            <th>Guests</th>
+                            <th>Message</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking.id }}</td>
+                            <td>{{ booking.user_name }}</td>
+                            <td>{{ booking.user_email }}</td>
+                            <td>{{ booking.hall_name }}</td>
+                            <td>{{ booking.location }}</td>
+                            <td>{{ booking.event_type }}</td>
+                            <td>{{ booking.event_date }}</td>
+                            <td>{{ booking.guests }}</td>
+                            <td>{{ booking.message }}</td>
+                            <td>
+                                {% if booking.booking_status == 'approved' %}
+                                    <span class="badge bg-success">Approved</span>
+                                {% elif booking.booking_status == 'rejected' %}
+                                    <span class="badge bg-danger">Rejected</span>
+                                {% else %}
+                                    <span class="badge bg-warning text-dark">Pending</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="d-flex flex-column gap-1">
+                                    <a href="{{ url_for('update_booking_status', booking_id=booking.id, status='approved') }}"
+                                       class="btn btn-success btn-sm">Approve</a>
+                                    <a href="{{ url_for('update_booking_status', booking_id=booking.id, status='rejected') }}"
+                                       class="btn btn-danger btn-sm">Reject</a>
+                                    <a href="{{ url_for('update_booking_status', booking_id=booking.id, status='pending') }}"
+                                       class="btn btn-secondary btn-sm">Pending</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

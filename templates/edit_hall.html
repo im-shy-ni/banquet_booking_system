@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow p-4">
+                <h3 class="mb-4">Edit Hall</h3>
+                <form method="POST">
+                    <input type="text" name="hall_name" class="form-control mb-3" value="{{ hall.hall_name }}" required>
+                    <input type="text" name="location" class="form-control mb-3" value="{{ hall.location }}" required>
+                    <input type="number" name="capacity" class="form-control mb-3" value="{{ hall.capacity }}" required>
+                    <input type="number" step="0.01" name="price" class="form-control mb-3" value="{{ hall.price }}" required>
+                    <input type="text" name="image" class="form-control mb-3" value="{{ hall.image }}">
+                    <textarea name="description" class="form-control mb-3" rows="5" required>{{ hall.description }}</textarea>
+
+                    <select name="status" class="form-control mb-3" required>
+                        <option value="available" {% if hall.status == 'available' %}selected{% endif %}>Available</option>
+                        <option value="unavailable" {% if hall.status == 'unavailable' %}selected{% endif %}>Unavailable</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary w-100">Update Hall</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

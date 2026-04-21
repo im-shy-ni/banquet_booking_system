@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="mb-4">
+            <h2 class="section-title">Admin Panel</h2>
+            <p class="section-subtitle">Manage halls, bookings, users, and messages from one dashboard.</p>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="stats-card">
+                    <div class="stats-number">{{ total_users }}</div>
+                    <div class="stats-label">Total Users</div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="stats-card">
+                    <div class="stats-number">{{ total_halls }}</div>
+                    <div class="stats-label">Total Halls</div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="stats-card">
+                    <div class="stats-number">{{ total_bookings }}</div>
+                    <div class="stats-label">Total Bookings</div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="stats-card">
+                    <div class="stats-number">{{ total_messages }}</div>
+                    <div class="stats-label">Total Messages</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ url_for('admin_halls') }}" class="admin-panel-card text-decoration-none">
+                    <div class="admin-panel-box">
+                        <h5>Manage Halls</h5>
+                        <p>Add, edit, and delete banquet halls.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ url_for('admin_bookings') }}" class="admin-panel-card text-decoration-none">
+                    <div class="admin-panel-box">
+                        <h5>Manage Bookings</h5>
+                        <p>Approve or reject user bookings.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ url_for('admin_users') }}" class="admin-panel-card text-decoration-none">
+                    <div class="admin-panel-box">
+                        <h5>View Users</h5>
+                        <p>Check all registered users.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <a href="{{ url_for('admin_messages') }}" class="admin-panel-card text-decoration-none">
+                    <div class="admin-panel-box">
+                        <h5>View Messages</h5>
+                        <p>Read contact form inquiries.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="{{ url_for('admin_logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

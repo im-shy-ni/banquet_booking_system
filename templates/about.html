@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- ===== ABOUT HEADER ===== -->
+<section class="about-section" style="min-height: 60vh;">
+    <div class="container text-center">
+        <h1 class="hero-title">About Us</h1>
+        <h3>We make your special moments unforgettable with the perfect venue.</h3>
+    </div>
+</section>
+
+<!-- ===== ABOUT CONTENT ===== -->
+<section class="py-5">
+    <div class="container">
+
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h2 class="about-section-title">Who We Are</h2>
+                <p class="about-section-subtitle">
+                    BanquetBook is an online platform designed to simplify the process of booking banquet halls for various events such as weddings, receptions, birthdays, and corporate functions.
+                </p>
+                <p>
+                    Our system helps users explore different venues, compare features, and book halls easily without any manual effort. We aim to provide a smooth and efficient booking experience.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/about.jpg') }}" 
+                     class="img-fluid rounded shadow">
+            </div>
+        </div>
+
+        <!-- ===== OUR MISSION ===== -->
+        <div class="row mb-5">
+            <div class="col-lg-4">
+                <div class="about-modern-card p-4 text-center">
+                    <h4>Our Mission</h4>
+                    <p>
+                        To provide a simple and reliable platform for users to find and book banquet halls easily.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="about-modern-card p-4 text-center">
+                    <h4>Our Vision</h4>
+                    <p>
+                        To become a leading online booking platform for event venues across different cities.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="about-modern-card p-4 text-center">
+                    <h4>Our Values</h4>
+                    <p>
+                        Customer satisfaction, transparency, and reliability are our top priorities.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== WHY CHOOSE US ===== -->
+        <div class="text-center mb-4">
+            <h2 class="section-title">Why Choose Us</h2>
+            <p class="section-subtitle">We provide the best features for your convenience.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="about-modern-card p-4 text-center">
+                    <h5>Easy Booking</h5>
+                    <p>Simple and quick booking process with just a few clicks.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="about-modern-card p-4 text-center">
+                    <h5>Multiple Options</h5>
+                    <p>Choose from a variety of halls based on your needs.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="about-modern-card p-4 text-center">
+                    <h5>Secure System</h5>
+                    <p>Your data and bookings are safe with our secure platform.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

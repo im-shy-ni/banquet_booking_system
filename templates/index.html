@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-badge">Elegant Venues for Every Celebration</div>
+                <h1 class="hero-title">Book Your Perfect Banquet Hall With Confidence</h1>
+                <p class="hero-subtitle">
+                    Discover premium venues for weddings, engagements, birthdays, receptions,
+                    and corporate events with a smooth and professional booking experience.
+                </p>
+                <a href="{{ url_for('halls') }}" class="hero-btn-primary">Explore Halls</a>
+                <a href="{{ url_for('contact') }}" class="hero-btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Featured Banquet Halls</h2>
+            <p class="section-subtitle">Explore our most popular venues for unforgettable events.</p>
+        </div>
+
+        <div class="row g-4">
+            {% for hall in halls %}
+            <div class="col-md-6 col-lg-4">
+                <div class="modern-card">
+                    <img src="{{ url_for('static', filename='images/' + (hall.image if hall.image else 'default.jpg')) }}" alt="Hall Image">
+                    <div class="card-body-modern">
+                        <h5 class="card-title-modern">{{ hall.hall_name }}</h5>
+                        <p class="card-text-muted"><strong>Location:</strong> {{ hall.location }}</p>
+                        <p class="card-text-muted"><strong>Capacity:</strong> {{ hall.capacity }} Guests</p>
+                        <div class="price-tag">₹{{ hall.price }}</div>
+                        <a href="{{ url_for('hall_details', hall_id=hall.id) }}" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
