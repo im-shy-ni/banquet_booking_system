@@ -29,7 +29,7 @@
             {% for hall in halls %}
             <div class="col-md-6 col-lg-4">
                 <div class="modern-card">
-                    <img src="{{ url_for('static', filename='images/' ~ (hall.image if hall.image else 'default.jpg')) }}" alt="Hall Image">
+                    <img src="{{ url_for('static', filename='images/' ~ (hall.image if hall.image else 'banner.jpg')) }}" alt="Hall Image">
                     <div class="card-body-modern">
                         <h5 class="card-title-modern">{{ hall.hall_name }}</h5>
                         <p class="card-text-muted"><strong>Location:</strong> {{ hall.location }}</p>
