@@ -28,10 +28,9 @@ cursor = db.cursor(dictionary=True)
 
 @app.route('/')
 def index():
-    cursor.execute("SELECT * FROM halls WHERE status='available' ORDER BY id DESC LIMIT 6")
+    cursor.execute("SELECT * FROM halls ORDER BY id DESC LIMIT 6")
     halls = cursor.fetchall()
     return render_template('index.html', halls=halls)
-
 
 @app.route('/about')
 def about():
@@ -104,11 +103,11 @@ def halls():
 
     if search:
         cursor.execute(
-            "SELECT * FROM halls WHERE status='available' AND hall_name LIKE %s",
+            "SELECT * FROM halls WHERE hall_name LIKE %s ORDER BY id DESC",
             ('%' + search + '%',)
         )
     else:
-        cursor.execute("SELECT * FROM halls WHERE status='available'")
+        cursor.execute("SELECT * FROM halls ORDER BY id DESC")
 
     halls = cursor.fetchall()
     return render_template('halls.html', halls=halls)
