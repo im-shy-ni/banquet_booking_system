@@ -14,15 +14,23 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 
-db = mysql.connector.connect(
-    host=os.getenv("MYSQLHOST"),
-    user=os.getenv("MYSQLUSER"),
-    password=os.getenv("MYSQLPASSWORD"),
-    database=os.getenv("MYSQLDATABASE"),
-    port=int(os.getenv("MYSQLPORT",3306))
-)
+import os
+import mysql.connector
 
-cursor = db.cursor(dictionary=True)
+try:
+    db = mysql.connector.connect(
+        host=os.getenv("MYSQLHOST"),
+        user=os.getenv("MYSQLUSER"),
+        password=os.getenv("MYSQLPASSWORD"),
+        database=os.getenv("MYSQLDATABASE"),
+        port=int(os.getenv("MYSQLPORT", 3306))
+    )
+
+    cursor = db.cursor(dictionary=True)
+    print("Database Connected ")
+
+except mysql.connector.Error as err:
+    print("Database Connection Failed :", err)
 
 
 @app.route('/')
